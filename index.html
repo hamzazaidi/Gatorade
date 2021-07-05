@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energize</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+</head>
+    <body class="container">
+        <div class="switch">
+            <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+        </div>
+        <section>
+            <div class="display">
+                <div class="background blue shadow second"></div>
+                <div class="background purple shadow"></div>
+                <div class="background yellow shadow"></div>
+                <div class="background pink shadow"></div>
+                <div class="background orange shadow"></div>
+                <img class="logo" src="./assets/logo.png" alt="Getorade Logo">
+                <img class="bottle blue visible" src="./assets/glacier-freeze-bottle.png" alt="Getorade Glacier freeze bottle">
+                <img class="bottle purple" src="./assets/grape-bottle.png" alt="Getorade Grape bottle">
+                <img class="bottle yellow" src="./assets/lemon-lime-bottle.png" alt="Getorade Lemon lime bottle">
+                <img class="bottle pink" src="./assets/berry-bottle.png" alt="Getorade Berry bottle">
+                <img class="bottle orange" src="./assets/orange-bottle.png" alt="Getorade Orange bottle">
+            </div>
+            <div class="details shadow">
+                <div>
+                    <div class="header">
+                        <h1>G Zero</h1>
+                        <h4 class="blue">Glacier freeze</h4>
+                    </div>
+                    <div class="sub-title">
+                        All the eletrolytes, zero sugar
+                    </div>
+                </div>
+                <div>
+                    <h3>Product info</h3>
+                    <div class="sub-title">
+                        Zero sugar hydration with electrolytes to replace what you lose in sweat.
+                    </div>
+                </div>
+                <div>
+                    <h3>Flavors</h3>
+                    <div class="flavors">
+                        <button data-color="blue" class="button blue selected"></button>
+                        <button data-color="purple" class="button purple"></button>
+                        <button data-color="yellow" class="button yellow"></button>
+                        <button data-color="pink" class="button pink"></button>
+                        <button data-color="orange" class="button orange"></button>
+                    </div>
+                </div>
+                <div>
+                    <h3>Quantity</h3>
+                    <div class="quantity">
+                        <input type="number" class="quantity-box">
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="blue">Add to cart</button>
+                    <div class="price">$50.00</div>
+                </div>
+            </div>
+        </section>
+        <script type="text/javascript" src="./index.js"></script>
+    </body>
+</html>

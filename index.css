@@ -1,0 +1,433 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --detailBackground: #fff;
+    --backgroundColor: #e2e2e2; 
+    --boxShadow:rgba(0,0,0,0.75);
+    --text-light: #a0a0a0;
+    --text-medium: #6a6a6a;
+    --text-dark: #3f3f3f;
+    --orange: #fc4a1a;
+    --blue:#019485;
+    --purple: #412256;
+    --yellow: #cccd02;
+    --pink:#e53d70;
+    --backgroundImageOrange: linear-gradient(
+        45deg
+        , var(--orange), #f7b733);
+    --backgroundImageBlue: linear-gradient(
+    45deg
+    , var(--blue), #017594);
+    --backgroundImagePurple: linear-gradient(
+    45deg
+    , var(--purple), #98004c);
+    --backgroundImageYellow: linear-gradient(
+    45deg
+    , var(--yellow), #33a82d);
+    --backgroundImagePink: linear-gradient(
+    45deg
+    , var(--pink), #830028);    
+}
+
+.dark {
+    --detailBackground: #282828;
+    --backgroundColor: #161515;
+    --boxShadow: rgb(255 255 255 / 75%);
+    --text-light: #d7d7d7;
+    --text-medium: #b4b4b4;
+    --text-dark: #f0f0f0;
+    --backgroundImageBlue: linear-gradient( 45deg , var(--blue), #10b6e2);
+    --backgroundImagePurple: linear-gradient( 45deg , #68497d, #98004c);
+}
+
+body {
+    font-family: 'Teko', sans-serif;
+    background-color: var(--backgroundColor);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s linear;
+    /* perspective: 1000px; */
+}
+
+.shadow {
+    box-shadow: 0px 0px 12  px -12px var(--boxShadow)
+}
+
+section {
+    display: flex;
+    /* transform-style: preserve-3d; */
+}
+
+section > div {
+    height: 565px;
+    width: 450px;
+    padding: 30px;
+}
+
+section .display {
+    position: relative;
+}
+
+section .display .background {
+    position: absolute;
+    width: 100%;
+    height: 550px;
+    right: 0;
+    top: 50%;
+    transform: translate(0%, -50%);
+    z-index: 0;
+}
+section .display .background.first {
+    z-index: 2;
+    animation: 1s width ease;
+}
+
+@keyframes width{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+
+section .display .background.second {
+    z-index: 1;
+}
+
+section .display .background.orange {
+    background-image: var(--backgroundImageOrange);
+}
+section .display .background.blue {
+    background-image: var(--backgroundImageBlue);
+}
+section .display .background.purple {
+    background-image: var(--backgroundImagePurple);
+}
+section .display .background.yellow {
+    background-image: var(--backgroundImageYellow);
+}
+section .display .background.pink {
+    background-image: var(--backgroundImagePink);
+}
+
+section .display img.logo{
+    position: absolute;
+    width: 80px;
+    height: 70px;
+    top: 38px;
+    left: 0px;
+    z-index: 3;
+}
+
+section .display .bottle {
+    width: 350px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    opacity: 0;
+    transition: all 0.75s ease-out;
+} 
+section .display .bottle.visible {
+    opacity: 1;
+}
+
+section .details {
+    background-color: var(--detailBackground);
+}
+
+section .details > div {
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--backgroundColor);
+}
+
+.dark section .details > div {
+    border-bottom: 1px solid var(--text-medium);
+}
+
+section .details > div:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+}
+
+section .details > div h1, section .details > div h3 {
+    color: var(--text-dark);
+}
+
+section .details > div .header {
+    display: flex;
+    align-items: center;
+}
+section .details > div h1 {
+    font-size: 50px;
+    line-height: 1;
+    margin-right: 10px;
+}
+section .details > div .header h4{
+    font-size: 35px;
+    padding: 8px 10px 5px 10px;
+    line-height: 1;
+    border-radius: 5px;
+    color: var(--detailBackground);
+    transition: all 0.5s ease-in-out;
+}
+.dark section .details > div .header h4{
+    color: var(--text-dark);
+}
+
+section .details > div .header h4.orange{
+    background-color: var(--orange);
+}
+section .details > div .header h4.blue {
+    background-color: var(--blue);
+}
+section .details > div .header h4.purple {
+    background-color: var(--purple);
+}
+section .details > div .header h4.yellow {
+    background-color: var(--yellow);
+}
+section .details > div .header h4.pink {
+    background-color: var(--pink);
+}
+
+section .details > div h3 {
+    font-size: 30px;
+}
+
+
+section .details > div .sub-title {
+    color: var(--text-medium);
+    font-size: 25px;
+}
+
+section .details > div .flavors, section .details > div .quantity {
+    margin-bottom: 10px;
+}
+
+section .details > div .flavors button {
+    padding: 20px;
+    border: 10px solid var(--detailBackground);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+section .details > div .flavors button.selected {
+    box-shadow: 0px 0px 20px -6px var(--boxShadow);
+}
+section .details > div .flavors button.orange {
+    background-image: var(--backgroundImageOrange)
+}
+section .details > div .flavors button.blue {
+    background-image: var(--backgroundImageBlue);
+}
+section .details > div .flavors button.purple {
+    background-image: var(--backgroundImagePurple);
+}
+section .details > div .flavors button.yellow {
+    background-image: var(--backgroundImageYellow);
+}
+section .details > div .flavors button.pink {
+    background-image: var(--backgroundImagePink);
+}
+
+section .details > div .quantity .quantity-box {
+    border: 1px solid var(--text-light);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 25px;
+    width: 50px;
+    font-family: 'Teko', sans-serif;
+}
+
+section .details > div.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section .details > div.actions button{
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 25px;
+    font-family: 'Teko', sans-serif;
+    color: var(--detailBackground);
+    transition: background-color 0.5s ease-in-out;
+}
+.dark section .details > div.actions button{
+    color: var(--text-dark);
+}
+
+section .details > div.actions button.orange{
+    background-color: var(--orange);
+}
+section .details > div.actions button.blue {
+    background-color: var(--blue);
+}
+section .details > div.actions button.purple {
+    background-color: var(--purple);
+}
+section .details > div.actions button.yellow {
+    background-color: var(--yellow);
+}
+section .details > div.actions button.pink {
+    background-color: var(--pink);
+}
+
+section .details > div.actions .price{
+    color: var(--text-dark);
+    font-size: 50px;
+}
+
+.switch {
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+.switch input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+.switch label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 60px;
+	height: 30px;
+	background: grey;
+	display: block;
+	border-radius: 100px;
+	position: relative;
+}
+
+.switch label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 21px;
+	height: 20px;
+	background: var(--detailBackground);
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+.switch input:checked + label {
+	background: #5597da;
+}
+
+.switch input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+.switch label:active:after {
+	width: 30px;
+}
+
+
+
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    body {
+        height: auto;
+        margin: 60px auto;
+    }
+    .switch {
+        top: -60px;
+        right: 25px;
+    }
+    section {
+        flex-direction: column;
+    }
+    section > div {
+        height: 190px;
+        width: 300px;
+    }
+    section .display .bottle {
+        width: 150px;
+    } 
+    section .display .background {
+        height: 250px;
+    }
+    section .display img.logo {
+        top: 0px;
+    }
+    section .details {
+        height: auto;
+    }
+    section .details > div .flavors button {
+        padding: 15px;
+        border: 5px solid var(--detailBackground);
+    }
+    section .details > div h1 {
+        font-size: 40px;
+    }
+    section .details > div .header h4{
+        font-size: 20px;
+    }    
+    section .details > div h3 {
+        font-size: 25px;
+    }
+    section .details > div .sub-title {
+        font-size: 20px;
+    }
+
+    section .details > div .quantity .quantity-box {
+        padding: 5px 15px;
+        font-size: 20px;
+    }
+    section .details > div.actions .price {
+        font-size: 40px;
+    }
+    section .details > div.actions button {
+        padding: 5px 15px;
+        font-size: 25px;
+    }
+}
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    body {
+        height: auto;
+        margin: 100px auto;
+    }
+    .switch {
+        top: -64px;
+        right: 27px;
+    }
+    section {
+        flex-direction: column;
+    }
+    section > div {
+        height: 495px;
+        width: 650px;
+    }
+
+    section .display .bottle {
+        width: 325px;
+    } 
+    section .display .background {
+        height: 550px;
+    }
+    section .display img.logo {
+        top: 2px;
+    }
+    section .details {
+        height: auto;
+    }
+}
